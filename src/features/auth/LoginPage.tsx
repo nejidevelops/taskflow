@@ -16,16 +16,16 @@ function LoginPage() {
     setMessage('')
 
     try {
-      const data = await signIn(email, password);
-      setLoading(false)
-      if (data.session) {
-        setMessage('Logged in successfully!');
-      } else {
-        setMessage('Please check your email to confirm your account.');
-      }
+      await signIn(email, password);
+
+      setMessage('Login successful!');
     } catch (error) {
+      setMessage(
+        error instanceof Error ? error.message : 'An unexpected error occurred.'
+      )
+    }
+    finally {
       setLoading(false)
-      setMessage('An error occurred while logging in.');
     }
   }
 
