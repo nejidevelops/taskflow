@@ -1,11 +1,17 @@
 import { useState } from 'react';
 import { signIn } from './authService'
+import { useAuth } from './AuthContext';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+
+  const {
+    user,
+    loading: authLoading,
+  } = useAuth();
 
   async function handleSubmit(
     event: React.FormEvent<HTMLFormElement>
@@ -70,6 +76,16 @@ function LoginPage() {
           <p className="text-red-500 text-sm mt-2">{message}</p>
         )}
       </form>
+
+      {authLoading ? (
+        <p>Checking authentication....</p>
+      ) : user ? (
+        <p className="text-green-500 text-sm mt-2">
+          You are logged in as {user.email}
+        </p>
+      ) : (
+        <p>You are not logged in.</p>
+      )}
     </main>
   );
 }
