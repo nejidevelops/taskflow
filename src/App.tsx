@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { supabase } from "./lib/supabase";
 import RegisterPage from "./features/auth/RegisterPage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import LoginPage from "./features/auth/LoginPage";
