@@ -7,6 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import PublicRoute from "./features/auth/PublicRoute";
 import ProtectedRoute from "./features/auth/ProtectedRoute";
 import DashboardPage from "./features/dashboard/DashboardPage";
+import ProjectsPage from "./features/projects/ProjectsPage";
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
           <Route
             path="/dashboard"
             element={<DashboardPage />}
+          />
+
+          <Route
+            path="/projects"
+            element={<ProjectsPage />}
           />
         </Route>
 
