@@ -6,6 +6,7 @@ import PublicRoute from "./features/auth/PublicRoute";
 import ProtectedRoute from "./features/auth/ProtectedRoute";
 import DashboardPage from "./features/dashboard/DashboardPage";
 import ProjectsPage from "./features/projects/ProjectsPage";
+import TasksPage from "./features/tasks/TasksPage";
 
 function App() {
   return (
@@ -25,6 +26,11 @@ function App() {
           <Route
             path="/projects"
             element={<ProjectsPage />}
+          />
+
+          <Route
+            path="/tasks"
+            element={<TasksPage />}
           />
         </Route>
 
